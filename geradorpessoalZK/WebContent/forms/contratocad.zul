@@ -1,0 +1,181 @@
+<?page id="wCadContratoZul" title="Cadastro de Contrato" cacheable="false" language="xul/html" zscriptLanguage="Java" contentType="text/html;charset=UTF-8"?> 
+ <zk xmlns="http://www.zkoss.org/2005/zul" 
+ 	xmlns:h="http://www.w3.org/1999/xhtml" 
+ 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-infabnce" 
+ 	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd"> 
+ 	<window use="model.view.Contratocad" id="wCadContrato" 
+ 		title="Cadastro de Contrato" border="normal" shadow="false" 
+ 		width="550px" position="center" mode="overlapped" sizable="false" 
+ 		closable="false" onCreate="wCadContrato.initComponentes()"> 
+ 		<separator height="10px" /> 
+ 		 
+ 		<grid width="90%" align="center"> 
+ 			<columns> 
+ 				<column label="" align="right" /> 
+ 				<column label="" align="left" />				 
+ 			</columns> 
+ 			<rows>			 
+ 				<row>
+	<hbox>
+		<label value="Codigo" />
+		</hbox>
+	 <intbox id="idcontrato" value="@{wCadContrato.contrato.idcontrato}"  readonly="true"  width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Fiador" />
+		</hbox>
+	<textbox id="fiador" value="@{wCadContrato.contrato.fiador}" maxlength="200"  width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Endereco do Fiador" />
+		</hbox>
+	<textbox id="enderecofiador" value="@{wCadContrato.contrato.enderecofiador}" maxlength="200"  width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Numero" />
+		</hbox>
+	<textbox id="numerofiador" value="@{wCadContrato.contrato.numerofiador}" maxlength="7"  width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Bairro" />
+		</hbox>
+	<textbox id="bairrofiador" value="@{wCadContrato.contrato.bairrofiador}" maxlength="200"  width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Celular" />
+		</hbox>
+	<textbox id="celularfiador" value="@{wCadContrato.contrato.celularfiador}" maxlength="13"  width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Telefone" />
+		</hbox>
+	<textbox id="telefonefiador" value="@{wCadContrato.contrato.telefonefiador}" maxlength="13"  width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="CPF" />
+		</hbox>
+	<textbox id="cpffiado" value="@{wCadContrato.contrato.cpffiado}" maxlength="14"  width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="RG" />
+		</hbox>
+	<textbox id="rgfiador" value="@{wCadContrato.contrato.rgfiador}" maxlength="15"  width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Data Inicial do Contrato" />
+		<label style="color:red" value="*" />
+		</hbox>
+	 <datebox id="datainicialcontrato" value="@{wCadContrato.contrato.datainicialcontrato}"  constraint="no empty:Entre com a Data Inicial do Contrato" format="dd/MM/yyyy"  width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Data Final do Contrato" />
+		<label style="color:red" value="*" />
+		</hbox>
+	 <datebox id="datafinalcontrato" value="@{wCadContrato.contrato.datafinalcontrato}"  constraint="no empty:Entre com a Data Final do Contrato" format="dd/MM/yyyy"  width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Data do Primeiro Pagamento" />
+		<label style="color:red" value="*" />
+		</hbox>
+	 <datebox id="dataprimeiropagamento" value="@{wCadContrato.contrato.dataprimeiropagamento}"  constraint="no empty:Entre com a Data do Primeiro Pagamento" format="dd/MM/yyyy"  width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Numero de Meses" />
+		<label style="color:red" value="*" />
+		</hbox>
+	 <intbox id="numeromeses" value="@{wCadContrato.contrato.numeromeses}"  constraint="no empty:Entre com a Numero de Meses" width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Numero de Meses Literal" />
+		<label style="color:red" value="*" />
+		</hbox>
+	<textbox id="numeromesesliteral" value="@{wCadContrato.contrato.numeromesesliteral}" maxlength="20"  constraint="no empty:Entre com a Numero de Meses Literal" width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Valor do Aluguel" />
+		<label style="color:red" value="*" />
+		</hbox>
+	<doublebox id="valoraluguel" value="@{wCadContrato.contrato.valoraluguel}"  constraint="no empty:Entre com a Valor do Aluguel" width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Valor do Aluguel Literal" />
+		<label style="color:red" value="*" />
+		</hbox>
+	<textbox id="valoraluguelliteral" value="@{wCadContrato.contrato.valoraluguelliteral}" maxlength="35"  constraint="no empty:Entre com a Valor do Aluguel Literal" width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Dia do Pagamento" />
+		<label style="color:red" value="*" />
+		</hbox>
+	 <intbox id="diapagamento" value="@{wCadContrato.contrato.diapagamento}"  constraint="no empty:Entre com a Dia do Pagamento" width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Dia do Pagamento Literal" />
+		<label style="color:red" value="*" />
+		</hbox>
+	<textbox id="diapagamentoliteral" value="@{wCadContrato.contrato.diapagamentoliteral}" maxlength="20"  constraint="no empty:Entre com a Dia do Pagamento Literal" width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Imovel" />
+		<label style="color:red" value="*" />
+		</hbox>
+	
+<hbox>
+		
+ 	 
+<intbox id="idimovel"  value="@{wCadContrato.imovel.idimovel}"  width="60px"   onOK="wCadContrato.buscaPorCodImovel()"  />
+		
+ <textbox value="@{wCadContrato.imovel.nomeimovel}"  readonly="true" width="250px" />
+		
+<image src="/images/imgBuscar.png" tooltiptext="Pesquisar Imovel" 	   onClick="wCadContrato.pesquisarImovel()"/>
+		<image src="/images/btnIncluir.png" onClick="wCadContrato.addImovel()"/>
+		
+</hbox>
+	 </row>
+<row>
+	<hbox>
+		<label value="Inquilino" />
+		<label style="color:red" value="*" />
+		</hbox>
+	
+<hbox>
+		
+ 	 
+<intbox id="idinquilino"  value="@{wCadContrato.inquilino.idinquilino}"  width="60px"   onOK="wCadContrato.buscaPorCodInquilino()"  />
+		
+ <textbox value="@{wCadContrato.inquilino.nomeinquilino}"  readonly="true" width="250px" />
+		
+<image src="/images/imgBuscar.png" tooltiptext="Pesquisar Inquilino" 	   onClick="wCadContrato.pesquisarInquilino()"/>
+		<image src="/images/btnIncluir.png" onClick="wCadContrato.addInquilino()"/>
+		
+</hbox>
+	 </row>
+ 
+ 				 
+ 				<row spans="2" style="text-align:left"> 
+ 				<label style="color:red" value="*Campos Obrigatórios" /> 
+ 				</row> 
+ 			</rows> 
+ 		</grid> 
+ 		<separator height="10px" /> 
+ 	</window> 
+ </zk> 
+ 

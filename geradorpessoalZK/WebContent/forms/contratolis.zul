@@ -1,0 +1,188 @@
+<?page id="wLisContratoZul" title="Lista de Contrato" cacheable="false" language="xul/html" zscriptLanguage="Java" contentType="text/html;charset=UTF-8"?>
+	 
+ <zk xmlns="http://www.zkoss.org/2005/zul" 
+ 	xmlns:h="http://www.w3.org/1999/xhtml" 
+ 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-infabnce" 
+ 	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+		 
+ 	<window use="model.view.Contratolis" id="wLisContrato" 
+ 		title="Lista de Contrato" border="normal" shadow="false" width="620px" 
+ 		height="450px" position="center" mode="overlapped" sizable="false" 
+ 		closable="true" onCreate="wLisContrato.initComponentes()">
+			    
+ 		<paging id="pagContrato" pageSize="10"  />
+					 
+ 		<listbox id="listContrato" model="@{wLisContrato.listmodel}" width="600px" 
+ 			height="360px" selectedItem="@{wLisContrato.item}"    
+ 			onSelect="wLisContrato.selecionar()" checkmark="true">
+				 
+ 		 
+ 			 <listhead>
+					 <listheader width="160px" >
+						<vbox>
+							<label value="Codigo"/>
+							 <intbox id="idcontrato" value="@{wLisContrato.contrato.idcontrato}"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Fiador"/>
+							<textbox id="fiador" value="@{wLisContrato.contrato.fiador}"  maxlength="200"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Endereco do Fiador"/>
+							<textbox id="enderecofiador" value="@{wLisContrato.contrato.enderecofiador}"  maxlength="200"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Numero"/>
+							<textbox id="numerofiador" value="@{wLisContrato.contrato.numerofiador}"  maxlength="7"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Bairro"/>
+							<textbox id="bairrofiador" value="@{wLisContrato.contrato.bairrofiador}"  maxlength="200"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Celular"/>
+							<textbox id="celularfiador" value="@{wLisContrato.contrato.celularfiador}"  maxlength="13"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Telefone"/>
+							<textbox id="telefonefiador" value="@{wLisContrato.contrato.telefonefiador}"  maxlength="13"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="CPF"/>
+							<textbox id="cpffiado" value="@{wLisContrato.contrato.cpffiado}"  maxlength="14"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="RG"/>
+							<textbox id="rgfiador" value="@{wLisContrato.contrato.rgfiador}"  maxlength="15"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Data Inicial do Contrato"/>
+							  <datebox id="datainicialcontrato" value="@{wLisContrato.contrato.datainicialcontrato}"  format="dd/MM/yyyy"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Data Final do Contrato"/>
+							  <datebox id="datafinalcontrato" value="@{wLisContrato.contrato.datafinalcontrato}"  format="dd/MM/yyyy"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Data do Primeiro Pagamento"/>
+							  <datebox id="dataprimeiropagamento" value="@{wLisContrato.contrato.dataprimeiropagamento}"  format="dd/MM/yyyy"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Numero de Meses"/>
+							 <intbox id="numeromeses" value="@{wLisContrato.contrato.numeromeses}"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Numero de Meses Literal"/>
+							<textbox id="numeromesesliteral" value="@{wLisContrato.contrato.numeromesesliteral}"  maxlength="20"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Valor do Aluguel"/>
+							<doublebox id="valoraluguel" value="@{wLisContrato.contrato.valoraluguel}"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Valor do Aluguel Literal"/>
+							<textbox id="valoraluguelliteral" value="@{wLisContrato.contrato.valoraluguelliteral}"  maxlength="35"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Dia do Pagamento"/>
+							 <intbox id="diapagamento" value="@{wLisContrato.contrato.diapagamento}"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Dia do Pagamento Literal"/>
+							<textbox id="diapagamentoliteral" value="@{wLisContrato.contrato.diapagamentoliteral}"  maxlength="20"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="200px" >
+						<vbox>
+							<label value="Imovel"/>
+							
+<hbox>
+								
+ 	
+ <textbox id="nomeimovel" value="@{wLisContrato.imovel.nomeimovel}" readonly="true" width="150px" />
+								
+<image src="/images/imgBuscar.png" tooltiptext="Pesquisar Imovel" 	   onClick="wLisContrato.pesquisarImovel()"/>
+								
+</hbox>
+							 </vbox>
+						 </listheader>
+					<listheader width="200px" >
+						<vbox>
+							<label value="Inquilino"/>
+							
+<hbox>
+								
+ 	
+ <textbox id="nomeinquilino" value="@{wLisContrato.inquilino.nomeinquilino}" readonly="true" width="150px" />
+								
+<image src="/images/imgBuscar.png" tooltiptext="Pesquisar Inquilino" 	   onClick="wLisContrato.pesquisarInquilino()"/>
+								
+</hbox>
+							 </vbox>
+						 </listheader>
+					 </listhead>
+				  <listitem self="@{each=contrato}">
+					    <listcell	  label="@{contrato.idcontrato}" />
+					    <listcell	  label="@{contrato.fiador}" />
+					    <listcell	  label="@{contrato.enderecofiador}" />
+					    <listcell	  label="@{contrato.numerofiador}" />
+					    <listcell	  label="@{contrato.bairrofiador}" />
+					    <listcell	  label="@{contrato.celularfiador}" />
+					    <listcell	  label="@{contrato.telefonefiador}" />
+					    <listcell	  label="@{contrato.cpffiado}" />
+					    <listcell	  label="@{contrato.rgfiador}" />
+					    <listcell	  label="@{contrato.datainicialcontrato}" />
+					    <listcell	  label="@{contrato.datafinalcontrato}" />
+					    <listcell	  label="@{contrato.dataprimeiropagamento}" />
+					    <listcell	  label="@{contrato.numeromeses}" />
+					    <listcell	  label="@{contrato.numeromesesliteral}" />
+					    <listcell	  label="@{contrato.valoraluguel}" />
+					    <listcell	  label="@{contrato.valoraluguelliteral}" />
+					    <listcell	  label="@{contrato.diapagamento}" />
+					    <listcell	  label="@{contrato.diapagamentoliteral}" />
+					    <listcell	  label="@{contrato.imovel.nomeimovel}" />
+					    <listcell	  label="@{contrato.inquilino.nomeinquilino}" />
+					    </listitem>
+				 
+ 			 
+ 		</listbox>
+			 
+ 	</window>
+		 
+ </zk>
+	 
+ 

@@ -1,0 +1,121 @@
+<?page id="wLisImovelZul" title="Lista de Imovel" cacheable="false" language="xul/html" zscriptLanguage="Java" contentType="text/html;charset=UTF-8"?>
+	 
+ <zk xmlns="http://www.zkoss.org/2005/zul" 
+ 	xmlns:h="http://www.w3.org/1999/xhtml" 
+ 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-infabnce" 
+ 	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+		 
+ 	<window use="model.view.Imovellis" id="wLisImovel" 
+ 		title="Lista de Imovel" border="normal" shadow="false" width="620px" 
+ 		height="450px" position="center" mode="overlapped" sizable="false" 
+ 		closable="true" onCreate="wLisImovel.initComponentes()">
+			    
+ 		<paging id="pagImovel" pageSize="10"  />
+					 
+ 		<listbox id="listImovel" model="@{wLisImovel.listmodel}" width="600px" 
+ 			height="360px" selectedItem="@{wLisImovel.item}"    
+ 			onSelect="wLisImovel.selecionar()" checkmark="true">
+				 
+ 		 
+ 			 <listhead>
+					 <listheader width="160px" >
+						<vbox>
+							<label value="Codigo"/>
+							 <intbox id="idimovel" value="@{wLisImovel.imovel.idimovel}"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Nome do Imovel"/>
+							<textbox id="nomeimovel" value="@{wLisImovel.imovel.nomeimovel}"  maxlength="200"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Endereco"/>
+							<textbox id="endereco" value="@{wLisImovel.imovel.endereco}"  maxlength="200"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Numero"/>
+							<textbox id="numero" value="@{wLisImovel.imovel.numero}"  maxlength="7"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Bairro"/>
+							<textbox id="bairro" value="@{wLisImovel.imovel.bairro}"  maxlength="150"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="CEP"/>
+							<textbox id="cep" value="@{wLisImovel.imovel.cep}"  maxlength="9"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Complemento"/>
+							<textbox id="complemento" value="@{wLisImovel.imovel.complemento}"  maxlength="200"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="200px" >
+						<vbox>
+							<label value="Cidade"/>
+							
+<hbox>
+								
+ 	
+ <textbox id="nomecidade" value="@{wLisImovel.cidade.nomecidade}" readonly="true" width="150px" />
+								
+<image src="/images/imgBuscar.png" tooltiptext="Pesquisar Cidade" 	   onClick="wLisImovel.pesquisarCidade()"/>
+								
+</hbox>
+							 </vbox>
+						 </listheader>
+					<listheader width="200px" >
+						<vbox>
+							<label value="Dono"/>
+							
+<hbox>
+								
+ 	
+ <textbox id="nomedono" value="@{wLisImovel.dono.nomedono}" readonly="true" width="150px" />
+								
+<image src="/images/imgBuscar.png" tooltiptext="Pesquisar Dono" 	   onClick="wLisImovel.pesquisarDono()"/>
+								
+</hbox>
+							 </vbox>
+						 </listheader>
+					<listheader width="183px" >
+						<vbox>
+							<label value="Tipo Imovel"/>
+							
+ <combobox id="tipoimovel" model="@{wLisImovel.lmtipoimovel}" name="tipoimovel" selectedItem="@{wLisImovel.tipoimovel}" width="150px" >
+									<comboitem self="@{each=tipoimovel}" value="@{tipoimovel}" label="@{tipoimovel.descricao}"/>
+								</combobox>
+							</vbox>
+						 </listheader>
+					 </listhead>
+				  <listitem self="@{each=imovel}">
+					    <listcell	  label="@{imovel.idimovel}" />
+					    <listcell	  label="@{imovel.nomeimovel}" />
+					    <listcell	  label="@{imovel.endereco}" />
+					    <listcell	  label="@{imovel.numero}" />
+					    <listcell	  label="@{imovel.bairro}" />
+					    <listcell	  label="@{imovel.cep}" />
+					    <listcell	  label="@{imovel.complemento}" />
+					    <listcell	  label="@{imovel.cidade.nomecidade}" />
+					    <listcell	  label="@{imovel.dono.nomedono}" />
+					    <listcell	  label="@{imovel.tipoimovel.descricao}" />
+					    </listitem>
+				 
+ 			 
+ 		</listbox>
+			 
+ 	</window>
+		 
+ </zk>
+	 
+ 

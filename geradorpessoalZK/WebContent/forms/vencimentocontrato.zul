@@ -1,0 +1,132 @@
+<?page contentType="text/html;charset=UTF-8"?>
+<zk xmlns="http://www.zkoss.org/2005/zul"
+	xmlns:h="http://www.w3.org/1999/xhtml"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+	<style>
+		tr.oddGridSclass td.z-row-inner, tr.oddGridSclass {
+		background-color: #E4EBF8; }
+
+	</style>
+	
+	<window use="model.view.VencimentoContrato" id="winVenci" border="none"
+		width="100%" position="center" closable="false"
+		onCreate="winVenci.init()">
+	 
+								<grid model="@{winVenci.conVenLis}"
+									height="600px" oddRowSclass="oddGridSclass" width="99%">
+									<auxhead>
+										<auxheader
+											label="Contratos Vencidos e a Vencer"
+											style="font-weight:bold;" colspan="5" align="center" />
+									</auxhead>
+									<columns>
+										<column width="50px"
+											onClick="">
+										</column>
+										<column label="Inquilino"
+											style="font-weight:bold;font-style: italic;color:green"
+											width="*" />
+										<column
+											label="Data do Vencimento do Contrato"
+											style="font-weight:bold;font-style: italic;color:green"
+											width="240px" />
+
+									</columns>
+									<rows>
+										<row self="@{each=contrato}"
+											value="@{contrato}">
+											<detail open="false">
+												<grid>
+													<columns>
+														<column
+															width="150px" />
+														<column />
+													</columns>
+													<rows>
+														<group
+															label="Inquilino" />
+														<row>
+															Nome:
+															<label
+																value="@{contrato.inquilino.nomeinquilino}" />
+														</row>
+														<group
+															label="Contato" />
+														<row
+															style="vertical-align: top">
+															Telefone:
+															<label
+																value="@{contrato.inquilino.telefone}" />
+														</row>
+														<row
+															style="vertical-align: top">
+															Celular:
+															<label
+																value="@{contrato.inquilino.celular}" />
+														</row>
+														<row
+															style="vertical-align: top">
+															E-mail:
+															<label
+																value="@{contrato.inquilino.email}" />
+
+														</row>
+														<group
+															label="Imovel Alugado" />
+														<row
+															style="vertical-align: top">
+
+															Nome do
+															Imovel:
+															<label
+																value="@{contrato.imovel.nomeimovel}" />
+														</row>
+														<row
+															style="vertical-align: top">
+															Endereço:
+															<label
+																value="@{contrato.imovel.endereco}" />
+														</row>
+														<row
+															style="vertical-align: top">
+															Numero:
+															<label
+																value="@{contrato.imovel.numero}" />
+														</row>
+														<row
+															style="vertical-align: top">
+															Bairro:
+															<label
+																value="@{contrato.imovel.bairro}" />
+														</row>
+														<row
+															style="vertical-align: top">
+															Complemento:
+															<label
+																value="@{contrato.imovel.complemento}" />
+														</row>
+													</rows>
+												</grid>
+											</detail>
+											<label
+												value="@{contrato.inquilino.nomeinquilino}" />
+											<label
+												value="@{contrato.datafinalcontrato}" />
+
+										</row>
+									</rows>
+								</grid>
+									
+		
+		
+			
+		<timer id="timer" delay="30000" repeats="true">
+			<attribute name="onTimer">
+	winVenci.init();
+</attribute>
+		</timer>
+
+	</window>
+</zk>

@@ -1,0 +1,19 @@
+<?page id="{idtela}Zul" title="Lista de {nometela}" cacheable="false" language="xul/html" zscriptLanguage="Java" contentType="text/html;charset=UTF-8"?>
+<zk xmlns="http://www.zkoss.org/2005/zul"
+	xmlns:h="http://www.w3.org/1999/xhtml"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-infabnce"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+	<window use="model.view.{obj.nome}lis" id="{idtela}"
+		title="Lista de {nometela}" border="normal" shadow="false" width="620px"
+		height="450px" position="center" mode="overlapped" sizable="false"
+		closable="true" onCreate="{idtela}.initComponentes()">   
+		<paging id="pag{obj.nome}" pageSize="10"  />		
+		<listbox id="list{obj.nome}" model="@{{idtela}.listmodel}" width="600px"
+			height="360px" selectedItem="@{{idtela}.item}"   
+			onSelect="{idtela}.selecionar()" checkmark="true">
+		
+			{itemlista}
+			
+		</listbox>
+	</window>
+</zk>

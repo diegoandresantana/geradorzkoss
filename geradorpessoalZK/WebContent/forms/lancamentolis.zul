@@ -1,0 +1,109 @@
+<?page id="wLisLancamentoZul" title="Lista de Lancamento" cacheable="false" language="xul/html" zscriptLanguage="Java" contentType="text/html;charset=UTF-8"?>
+	 
+ <zk xmlns="http://www.zkoss.org/2005/zul" 
+ 	xmlns:h="http://www.w3.org/1999/xhtml" 
+ 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-infabnce" 
+ 	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+		 
+ 	<window use="model.view.Lancamentolis" id="wLisLancamento" 
+ 		title="Lista de Lancamento" border="normal" shadow="false" width="620px" 
+ 		height="450px" position="center" mode="overlapped" sizable="false" 
+ 		closable="true" onCreate="wLisLancamento.initComponentes()">
+			    
+ 		<paging id="pagLancamento" pageSize="10"  />
+					 
+ 		<listbox id="listLancamento" model="@{wLisLancamento.listmodel}" width="600px" 
+ 			height="360px" selectedItem="@{wLisLancamento.item}"    
+ 			onSelect="wLisLancamento.selecionar()" checkmark="true">
+				 
+ 		 
+ 			 <listhead>
+					 <listheader width="160px" >
+						<vbox>
+							<label value="Codigo"/>
+							 <intbox id="idlancamento" value="@{wLisLancamento.lancamento.idlancamento}"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Descricao"/>
+							<textbox id="descricao" value="@{wLisLancamento.lancamento.descricao}"  maxlength="200"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Valor"/>
+							<doublebox id="valor" value="@{wLisLancamento.lancamento.valor}"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Data do Vencimento"/>
+							  <datebox id="datavencimento" value="@{wLisLancamento.lancamento.datavencimento}"  format="dd/MM/yyyy"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Data do Pagamento"/>
+							  <datebox id="datapagamento" value="@{wLisLancamento.lancamento.datapagamento}"  format="dd/MM/yyyy"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Periodo de Referência"/>
+							<textbox id="periodoreferencia" value="@{wLisLancamento.lancamento.periodoreferencia}"  maxlength="30"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="183px" >
+						<vbox>
+							<label value="Conta"/>
+							
+ <combobox id="conta" model="@{wLisLancamento.lmconta}" name="conta" selectedItem="@{wLisLancamento.conta}" width="150px" >
+									<comboitem self="@{each=conta}" value="@{conta}" label="@{conta.nomeconta}"/>
+								</combobox>
+							</vbox>
+						 </listheader>
+					<listheader width="200px" >
+						<vbox>
+							<label value="Contrato"/>
+							
+<hbox>
+								
+ 	
+ <textbox id="idcontrato" value="@{wLisLancamento.contrato.idcontrato}" readonly="true" width="150px" />
+								
+<image src="/images/imgBuscar.png" tooltiptext="Pesquisar Contrato" 	   onClick="wLisLancamento.pesquisarContrato()"/>
+								
+</hbox>
+							 </vbox>
+						 </listheader>
+					<listheader width="183px" >
+						<vbox>
+							<label value="Status do Lancamento"/>
+							
+ <combobox id="statuslancamento" model="@{wLisLancamento.lmstatuslancamento}" name="statuslancamento" selectedItem="@{wLisLancamento.statuslancamento}" width="150px" >
+									<comboitem self="@{each=statuslancamento}" value="@{statuslancamento}" label="@{statuslancamento.descricao}"/>
+								</combobox>
+							</vbox>
+						 </listheader>
+					 </listhead>
+				  <listitem self="@{each=lancamento}">
+					    <listcell	  label="@{lancamento.idlancamento}" />
+					    <listcell	  label="@{lancamento.descricao}" />
+					    <listcell	  label="@{lancamento.valor}" />
+					    <listcell	  label="@{lancamento.datavencimento}" />
+					    <listcell	  label="@{lancamento.datapagamento}" />
+					    <listcell	  label="@{lancamento.periodoreferencia}" />
+					    <listcell	  label="@{lancamento.conta.nomeconta}" />
+					    <listcell	  label="@{lancamento.contrato.idcontrato}" />
+					    <listcell	  label="@{lancamento.statuslancamento.descricao}" />
+					    </listitem>
+				 
+ 			 
+ 		</listbox>
+			 
+ 	</window>
+		 
+ </zk>
+	 
+ 

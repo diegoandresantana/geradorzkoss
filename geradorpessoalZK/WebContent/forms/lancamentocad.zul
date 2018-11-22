@@ -1,0 +1,118 @@
+<?page id="wCadLancamentoZul" title="Cadastro de Lancamento" cacheable="false" language="xul/html" zscriptLanguage="Java" contentType="text/html;charset=UTF-8"?> 
+ <zk xmlns="http://www.zkoss.org/2005/zul" 
+ 	xmlns:h="http://www.w3.org/1999/xhtml" 
+ 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-infabnce" 
+ 	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd"> 
+ 	<window use="model.view.Lancamentocad" id="wCadLancamento" 
+ 		title="Cadastro de Lancamento" border="normal" shadow="false" 
+ 		width="550px" position="center" mode="overlapped" sizable="false" 
+ 		closable="false" onCreate="wCadLancamento.initComponentes()"> 
+ 		<separator height="10px" /> 
+ 		 
+ 		<grid width="90%" align="center"> 
+ 			<columns> 
+ 				<column label="" align="right" /> 
+ 				<column label="" align="left" />				 
+ 			</columns> 
+ 			<rows>			 
+ 				<row>
+	<hbox>
+		<label value="Codigo" />
+		</hbox>
+	 <intbox id="idlancamento" value="@{wCadLancamento.lancamento.idlancamento}"  readonly="true"  width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Descricao" />
+		<label style="color:red" value="*" />
+		</hbox>
+	<textbox id="descricao" value="@{wCadLancamento.lancamento.descricao}" maxlength="200"  constraint="no empty:Entre com a Descricao" width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Valor" />
+		<label style="color:red" value="*" />
+		</hbox>
+	<doublebox id="valor" value="@{wCadLancamento.lancamento.valor}"  constraint="no empty:Entre com a Valor" width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Data do Vencimento" />
+		<label style="color:red" value="*" />
+		</hbox>
+	 <datebox id="datavencimento" value="@{wCadLancamento.lancamento.datavencimento}"  constraint="no empty:Entre com a Data do Vencimento" format="dd/MM/yyyy"  width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Data do Pagamento" />
+		<label style="color:red" value="*" />
+		</hbox>
+	 <datebox id="datapagamento" value="@{wCadLancamento.lancamento.datapagamento}"  constraint="no empty:Entre com a Data do Pagamento" format="dd/MM/yyyy"  width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Periodo de Referência" />
+		</hbox>
+	<textbox id="periodoreferencia" value="@{wCadLancamento.lancamento.periodoreferencia}" maxlength="30"  width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Conta" />
+		<label style="color:red" value="*" />
+		</hbox>
+	
+<hbox>
+		
+ 	
+ <combobox id="conta" model="@{wCadLancamento.lmconta}" name="conta" selectedItem="@{wCadLancamento.conta}" width="150px" >
+				<comboitem self="@{each=conta}" value="@{conta}" label="@{conta.nomeconta}"/>
+			</combobox>
+		<image src="/images/btnIncluir.png" onClick="wCadLancamento.addConta()"/>
+		
+</hbox>
+	 </row>
+<row>
+	<hbox>
+		<label value="Contrato" />
+		<label style="color:red" value="*" />
+		</hbox>
+	
+<hbox>
+		
+ 	 
+<intbox id="idcontrato"  value="@{wCadLancamento.contrato.idcontrato}"  width="60px"   onOK="wCadLancamento.buscaPorCodContrato()"  />
+		
+ <textbox value="@{wCadLancamento.contrato.idcontrato}"  readonly="true" width="250px" />
+		
+<image src="/images/imgBuscar.png" tooltiptext="Pesquisar Contrato" 	   onClick="wCadLancamento.pesquisarContrato()"/>
+		<image src="/images/btnIncluir.png" onClick="wCadLancamento.addContrato()"/>
+		
+</hbox>
+	 </row>
+<row>
+	<hbox>
+		<label value="Status do Lancamento" />
+		<label style="color:red" value="*" />
+		</hbox>
+	
+<hbox>
+		
+ 	
+ <combobox id="statuslancamento" model="@{wCadLancamento.lmstatuslancamento}" name="statuslancamento" selectedItem="@{wCadLancamento.statuslancamento}" width="150px" >
+				<comboitem self="@{each=statuslancamento}" value="@{statuslancamento}" label="@{statuslancamento.descricao}"/>
+			</combobox>
+		<image src="/images/btnIncluir.png" onClick="wCadLancamento.addStatusLancamento()"/>
+		
+</hbox>
+	 </row>
+ 
+ 				 
+ 				<row spans="2" style="text-align:left"> 
+ 				<label style="color:red" value="*Campos Obrigatórios" /> 
+ 				</row> 
+ 			</rows> 
+ 		</grid> 
+ 		<separator height="10px" /> 
+ 	</window> 
+ </zk> 
+ 

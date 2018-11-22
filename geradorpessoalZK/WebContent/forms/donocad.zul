@@ -1,0 +1,160 @@
+<?page id="wCadDonoZul" title="Cadastro de Dono" cacheable="false" language="xul/html" zscriptLanguage="Java" contentType="text/html;charset=UTF-8"?> 
+ <zk xmlns="http://www.zkoss.org/2005/zul" 
+ 	xmlns:h="http://www.w3.org/1999/xhtml" 
+ 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-infabnce" 
+ 	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd"> 
+ 	<window use="model.view.Donocad" id="wCadDono" 
+ 		title="Cadastro de Dono" border="normal" shadow="false" 
+ 		width="550px" position="center" mode="overlapped" sizable="false" 
+ 		closable="false" onCreate="wCadDono.initComponentes()"> 
+ 		<separator height="10px" /> 
+ 		 
+ 		<grid width="90%" align="center"> 
+ 			<columns> 
+ 				<column label="" align="right" /> 
+ 				<column label="" align="left" />				 
+ 			</columns> 
+ 			<rows>			 
+ 				<row>
+	<hbox>
+		<label value="Codigo" />
+		</hbox>
+	 <intbox id="iddono" value="@{wCadDono.dono.iddono}"  readonly="true"  width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Nome do Dono" />
+		<label style="color:red" value="*" />
+		</hbox>
+	<textbox id="nomedono" value="@{wCadDono.dono.nomedono}" maxlength="200"  constraint="no empty:Entre com a Nome do Dono" width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="CPF" />
+		</hbox>
+	<textbox id="cpf" value="@{wCadDono.dono.cpf}" maxlength="14"  width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Telefone" />
+		</hbox>
+	<textbox id="telefone" value="@{wCadDono.dono.telefone}" maxlength="15"  width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Celular" />
+		</hbox>
+	<textbox id="celular" value="@{wCadDono.dono.celular}" maxlength="15"  width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="RG" />
+		<label style="color:red" value="*" />
+		</hbox>
+	<textbox id="rg" value="@{wCadDono.dono.rg}" maxlength="15"  constraint="no empty:Entre com a RG" width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="E-mail" />
+		</hbox>
+	<textbox id="email" value="@{wCadDono.dono.email}" maxlength="150"  width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Cidade" />
+		<label style="color:red" value="*" />
+		</hbox>
+	
+<hbox>
+		
+ 	 
+<intbox id="idcidade"  value="@{wCadDono.cidade.idcidade}"  width="60px"   onOK="wCadDono.buscaPorCodCidade()"  />
+		
+ <textbox value="@{wCadDono.cidade.nomecidade}"  readonly="true" width="250px" />
+		
+<image src="/images/imgBuscar.png" tooltiptext="Pesquisar Cidade" 	   onClick="wCadDono.pesquisarCidade()"/>
+		<image src="/images/btnIncluir.png" onClick="wCadDono.addCidade()"/>
+		
+</hbox>
+	 </row>
+<row>
+	<hbox>
+		<label value="Tem procurador" />
+		<label style="color:red" value="*" />
+		</hbox>
+	
+ <combobox id="procurador"  name="procurador" selectedItem="@{wCadDono.dono.procurador}" width="150px" >
+		
+	<comboitem  value="S" label="Sim"/>
+		
+	<comboitem  value="N" label="Nao"/>
+		
+</combobox>
+	</row>
+<row>
+	<hbox>
+		<label value="Nome do Procurador" />
+		</hbox>
+	<textbox id="nomeprocurador" value="@{wCadDono.dono.nomeprocurador}" maxlength="150"  width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="RG do Procurador" />
+		</hbox>
+	<textbox id="rgprocurador" value="@{wCadDono.dono.rgprocurador}" maxlength="15"  width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="CPF do Procurador" />
+		</hbox>
+	<textbox id="cpfprocurador" value="@{wCadDono.dono.cpfprocurador}" maxlength="14"  width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="E-mail do Procurador" />
+		</hbox>
+	<textbox id="emailprocurador" value="@{wCadDono.dono.emailprocurador}" maxlength="150"  width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Dono da Conta Bancaria" />
+		<label style="color:red" value="*" />
+		</hbox>
+	<textbox id="donocontabancaria" value="@{wCadDono.dono.donocontabancaria}" maxlength="200"  constraint="no empty:Entre com a Dono da Conta Bancaria" width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Agencia" />
+		<label style="color:red" value="*" />
+		</hbox>
+	
+<hbox>
+		
+ 	 
+<intbox id="idagencia"  value="@{wCadDono.agencia.idagencia}"  width="60px"   onOK="wCadDono.buscaPorCodAgencia()"  />
+		
+ <textbox value="@{wCadDono.agencia.numeroagencia}"  readonly="true" width="250px" />
+		
+<image src="/images/imgBuscar.png" tooltiptext="Pesquisar Agencia" 	   onClick="wCadDono.pesquisarAgencia()"/>
+		<image src="/images/btnIncluir.png" onClick="wCadDono.addAgencia()"/>
+		
+</hbox>
+	 </row>
+<row>
+	<hbox>
+		<label value="Conta Bancária" />
+		<label style="color:red" value="*" />
+		</hbox>
+	<textbox id="contabancaria" value="@{wCadDono.dono.contabancaria}" maxlength="20"  constraint="no empty:Entre com a Conta Bancária" width="150px"  />
+	</row>
+ 
+ 				 
+ 				<row spans="2" style="text-align:left"> 
+ 				<label style="color:red" value="*Campos Obrigatórios" /> 
+ 				</row> 
+ 			</rows> 
+ 		</grid> 
+ 		<separator height="10px" /> 
+ 	</window> 
+ </zk> 
+ 

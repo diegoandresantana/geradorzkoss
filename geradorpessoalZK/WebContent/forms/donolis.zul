@@ -1,0 +1,167 @@
+<?page id="wLisDonoZul" title="Lista de Dono" cacheable="false" language="xul/html" zscriptLanguage="Java" contentType="text/html;charset=UTF-8"?>
+	 
+ <zk xmlns="http://www.zkoss.org/2005/zul" 
+ 	xmlns:h="http://www.w3.org/1999/xhtml" 
+ 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-infabnce" 
+ 	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+		 
+ 	<window use="model.view.Donolis" id="wLisDono" 
+ 		title="Lista de Dono" border="normal" shadow="false" width="620px" 
+ 		height="450px" position="center" mode="overlapped" sizable="false" 
+ 		closable="true" onCreate="wLisDono.initComponentes()">
+			    
+ 		<paging id="pagDono" pageSize="10"  />
+					 
+ 		<listbox id="listDono" model="@{wLisDono.listmodel}" width="600px" 
+ 			height="360px" selectedItem="@{wLisDono.item}"    
+ 			onSelect="wLisDono.selecionar()" checkmark="true">
+				 
+ 		 
+ 			 <listhead>
+					 <listheader width="160px" >
+						<vbox>
+							<label value="Codigo"/>
+							 <intbox id="iddono" value="@{wLisDono.dono.iddono}"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Nome do Dono"/>
+							<textbox id="nomedono" value="@{wLisDono.dono.nomedono}"  maxlength="200"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="CPF"/>
+							<textbox id="cpf" value="@{wLisDono.dono.cpf}"  maxlength="14"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Telefone"/>
+							<textbox id="telefone" value="@{wLisDono.dono.telefone}"  maxlength="15"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Celular"/>
+							<textbox id="celular" value="@{wLisDono.dono.celular}"  maxlength="15"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="RG"/>
+							<textbox id="rg" value="@{wLisDono.dono.rg}"  maxlength="15"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="E-mail"/>
+							<textbox id="email" value="@{wLisDono.dono.email}"  maxlength="150"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="200px" >
+						<vbox>
+							<label value="Cidade"/>
+							
+<hbox>
+								
+ 	
+ <textbox id="nomecidade" value="@{wLisDono.cidade.nomecidade}" readonly="true" width="150px" />
+								
+<image src="/images/imgBuscar.png" tooltiptext="Pesquisar Cidade" 	   onClick="wLisDono.pesquisarCidade()"/>
+								
+</hbox>
+							 </vbox>
+						 </listheader>
+					<listheader width="183px" >
+						<vbox>
+							<label value="Tem procurador"/>
+							
+ <combobox id="procurador"  name="procurador" selectedItem="@{wLisDono.dono.procurador}" width="150px" >
+								
+	<comboitem  value="S" label="Sim"/>
+								
+	<comboitem  value="N" label="Nao"/>
+								
+</combobox>
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Nome do Procurador"/>
+							<textbox id="nomeprocurador" value="@{wLisDono.dono.nomeprocurador}"  maxlength="150"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="RG do Procurador"/>
+							<textbox id="rgprocurador" value="@{wLisDono.dono.rgprocurador}"  maxlength="15"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="CPF do Procurador"/>
+							<textbox id="cpfprocurador" value="@{wLisDono.dono.cpfprocurador}"  maxlength="14"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="E-mail do Procurador"/>
+							<textbox id="emailprocurador" value="@{wLisDono.dono.emailprocurador}"  maxlength="150"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Dono da Conta Bancaria"/>
+							<textbox id="donocontabancaria" value="@{wLisDono.dono.donocontabancaria}"  maxlength="200"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="200px" >
+						<vbox>
+							<label value="Agencia"/>
+							
+<hbox>
+								
+ 	
+ <textbox id="numeroagencia" value="@{wLisDono.agencia.numeroagencia}" readonly="true" width="150px" />
+								
+<image src="/images/imgBuscar.png" tooltiptext="Pesquisar Agencia" 	   onClick="wLisDono.pesquisarAgencia()"/>
+								
+</hbox>
+							 </vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Conta Bancária"/>
+							<textbox id="contabancaria" value="@{wLisDono.dono.contabancaria}"  maxlength="20"  width="150px"  />
+							</vbox>
+						 </listheader>
+					 </listhead>
+				  <listitem self="@{each=dono}">
+					    <listcell	  label="@{dono.iddono}" />
+					    <listcell	  label="@{dono.nomedono}" />
+					    <listcell	  label="@{dono.cpf}" />
+					    <listcell	  label="@{dono.telefone}" />
+					    <listcell	  label="@{dono.celular}" />
+					    <listcell	  label="@{dono.rg}" />
+					    <listcell	  label="@{dono.email}" />
+					    <listcell	  label="@{dono.cidade.nomecidade}" />
+					    <listcell	  label="@{dono.procurador}" />
+					    <listcell	  label="@{dono.nomeprocurador}" />
+					    <listcell	  label="@{dono.rgprocurador}" />
+					    <listcell	  label="@{dono.cpfprocurador}" />
+					    <listcell	  label="@{dono.emailprocurador}" />
+					    <listcell	  label="@{dono.donocontabancaria}" />
+					    <listcell	  label="@{dono.agencia.numeroagencia}" />
+					    <listcell	  label="@{dono.contabancaria}" />
+					    </listitem>
+				 
+ 			 
+ 		</listbox>
+			 
+ 	</window>
+		 
+ </zk>
+	 
+ 

@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+
+
+        <!-- Database connection settings -->
+		<property name="connection.driver_class">org.postgresql.Driver</property>
+		<property name="connection.url">jdbc:postgresql://localhost:5432/controlealuguel</property>
+		<property name="connection.username">postgres</property>
+		<property name="connection.password">postgres</property>
+		
+		<!-- C3P0 connection pool-->
+		<property name="c3p0.min_size">8</property>
+		<property name="c3p0.max_size">15</property>
+		<property name="c3p0.timeout">2400</property>
+		<property name="c3p0.max_statements">30</property>
+		<property name="c3p0.idle_test_period">1300</property>
+		<property name="hibernate.c3p0.timeout">120</property> 
+         
+       <!-- JDBC connection pool (use the built-in) -->
+		<property name="connection.pool_size">5</property>  
+        <!-- SQL dialect   -->
+		<property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <!-- Enable Hibernate's automatic session context management -->
+		<property name="current_session_context_class">thread</property>  
+        <!-- Disable the second-level cache -->
+		<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>     
+        <!-- Echo all executed SQLs to stdout -->
+		<property name="show_sql">true</property>
+		<!--
+			Statisticas <property
+			name="hibernate.generate_statistics">true</property>
+		-->
+    		    		
+    	<!--	<property name="format_sql">true</property>-->
+    	
+
+		<mapping class="model.entity.hibernate.Cidade" />
+		<mapping class="model.entity.hibernate.Estado" />
+		<mapping class="model.entity.hibernate.Conta" />
+		<mapping class="model.entity.hibernate.Contrato" />
+		<mapping class="model.entity.hibernate.Dono" />
+		<mapping class="model.entity.hibernate.Imovel" />
+		<mapping class="model.entity.hibernate.Inquilino" />
+		<mapping class="model.entity.hibernate.Lancamento" />
+		<mapping class="model.entity.hibernate.StatusLancamento" />
+		<mapping class="model.entity.hibernate.TipoConta" />
+		<mapping class="model.entity.hibernate.TipoImovel" />
+		<mapping class="model.entity.hibernate.Banco" />
+		<mapping class="model.entity.hibernate.Agencia" />
+	<mapping class="model.entity.hibernate.Igpm" />
+		
+	</session-factory>
+</hibernate-configuration>

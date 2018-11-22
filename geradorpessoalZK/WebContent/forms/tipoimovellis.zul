@@ -1,0 +1,46 @@
+<?page id="wLisTipoImovelZul" title="Lista de Tipo de Imovel" cacheable="false" language="xul/html" zscriptLanguage="Java" contentType="text/html;charset=UTF-8"?>
+	 
+ <zk xmlns="http://www.zkoss.org/2005/zul" 
+ 	xmlns:h="http://www.w3.org/1999/xhtml" 
+ 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-infabnce" 
+ 	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+		 
+ 	<window use="model.view.TipoImovellis" id="wLisTipoImovel" 
+ 		title="Lista de Tipo de Imovel" border="normal" shadow="false" width="620px" 
+ 		height="450px" position="center" mode="overlapped" sizable="false" 
+ 		closable="true" onCreate="wLisTipoImovel.initComponentes()">
+			    
+ 		<paging id="pagTipoImovel" pageSize="10"  />
+					 
+ 		<listbox id="listTipoImovel" model="@{wLisTipoImovel.listmodel}" width="600px" 
+ 			height="360px" selectedItem="@{wLisTipoImovel.item}"    
+ 			onSelect="wLisTipoImovel.selecionar()" checkmark="true">
+				 
+ 		 
+ 			 <listhead>
+					 <listheader width="160px" >
+						<vbox>
+							<label value="Codigo"/>
+							 <intbox id="idtipoimovel" value="@{wLisTipoImovel.tipoImovel.idtipoimovel}"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Descricao"/>
+							<textbox id="descricao" value="@{wLisTipoImovel.tipoImovel.descricao}"  maxlength="100"  width="150px"  />
+							</vbox>
+						 </listheader>
+					 </listhead>
+				  <listitem self="@{each=tipoimovel}">
+					    <listcell	  label="@{tipoimovel.idtipoimovel}" />
+					    <listcell	  label="@{tipoimovel.descricao}" />
+					    </listitem>
+				 
+ 			 
+ 		</listbox>
+			 
+ 	</window>
+		 
+ </zk>
+	 
+ 

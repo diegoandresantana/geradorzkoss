@@ -1,0 +1,46 @@
+
+{package}
+{imports}
+import java.util.List;
+import org.zkoss.zul.ListModelList;
+import org.zkoss.zul.Messagebox;
+import org.zkoss.zul.Textbox;
+import pmcg.framework.ui.WindowList;
+import pmcg.framework.util.WinUtils;
+
+import model.dao.impl.hibernate.{obj.nome}DAO;
+import model.entity.hibernate.{obj.nomecompleto};
+
+
+@SuppressWarnings("serial")
+public class {obj.nome}lis extends WindowList<{obj.nomecompleto}> {
+	{declare}
+	public {obj.nomecompleto} {obj.nomecompleteuncaptalize} = new {obj.nomecompleto}();
+	private List<{obj.nomecompleto}> hmSis;
+	private {obj.nome}DAO dao = new {obj.nome}DAO();
+
+	public {obj.nome}lis() {
+		super();
+	}
+
+	public void initComponentes() {
+		{initcomponente}
+		this.getCrdBar().getBotao(3).setVisible(true);
+		this.getCrdBar().getBotao(4).setVisible(true);
+		this.vincular();
+	}
+
+	public void pesquisar() {
+		{pesquisar}
+		setListmodel(new ListModelList(hmSis));
+		this.atualizar();
+	}
+
+	public void limpar() {
+		{limpar}
+		this.vincular();
+	}
+	{gettersetter}
+	{campopesquisar}
+	
+}

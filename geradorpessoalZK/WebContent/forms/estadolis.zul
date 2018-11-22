@@ -1,0 +1,53 @@
+<?page id="wLisEstadoZul" title="Lista de Estado" cacheable="false" language="xul/html" zscriptLanguage="Java" contentType="text/html;charset=UTF-8"?>
+	 
+ <zk xmlns="http://www.zkoss.org/2005/zul" 
+ 	xmlns:h="http://www.w3.org/1999/xhtml" 
+ 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-infabnce" 
+ 	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+		 
+ 	<window use="model.view.Estadolis" id="wLisEstado" 
+ 		title="Lista de Estado" border="normal" shadow="false" width="620px" 
+ 		height="450px" position="center" mode="overlapped" sizable="false" 
+ 		closable="true" onCreate="wLisEstado.initComponentes()">
+			    
+ 		<paging id="pagEstado" pageSize="10"  />
+					 
+ 		<listbox id="listEstado" model="@{wLisEstado.listmodel}" width="600px" 
+ 			height="360px" selectedItem="@{wLisEstado.item}"    
+ 			onSelect="wLisEstado.selecionar()" checkmark="true">
+				 
+ 		 
+ 			 <listhead>
+					 <listheader width="160px" >
+						<vbox>
+							<label value="Codigo"/>
+							 <intbox id="idestado" value="@{wLisEstado.estado.idestado}"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Nome do Estado"/>
+							<textbox id="nomeestado" value="@{wLisEstado.estado.nomeestado}"  maxlength="120"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="UF"/>
+							<textbox id="uf" value="@{wLisEstado.estado.uf}"  maxlength="2"  width="150px"  />
+							</vbox>
+						 </listheader>
+					 </listhead>
+				  <listitem self="@{each=estado}">
+					    <listcell	  label="@{estado.idestado}" />
+					    <listcell	  label="@{estado.nomeestado}" />
+					    <listcell	  label="@{estado.uf}" />
+					    </listitem>
+				 
+ 			 
+ 		</listbox>
+			 
+ 	</window>
+		 
+ </zk>
+	 
+ 

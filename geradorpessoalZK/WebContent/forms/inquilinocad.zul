@@ -1,0 +1,112 @@
+<?page id="wCadInquilinoZul" title="Cadastro de Inquilino" cacheable="false" language="xul/html" zscriptLanguage="Java" contentType="text/html;charset=UTF-8"?> 
+ <zk xmlns="http://www.zkoss.org/2005/zul" 
+ 	xmlns:h="http://www.w3.org/1999/xhtml" 
+ 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-infabnce" 
+ 	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd"> 
+ 	<window use="model.view.Inquilinocad" id="wCadInquilino" 
+ 		title="Cadastro de Inquilino" border="normal" shadow="false" 
+ 		width="550px" position="center" mode="overlapped" sizable="false" 
+ 		closable="false" onCreate="wCadInquilino.initComponentes()"> 
+ 		<separator height="10px" /> 
+ 		 
+ 		<grid width="90%" align="center"> 
+ 			<columns> 
+ 				<column label="" align="right" /> 
+ 				<column label="" align="left" />				 
+ 			</columns> 
+ 			<rows>			 
+ 				<row>
+	<hbox>
+		<label value="Codigo" />
+		</hbox>
+	 <intbox id="idinquilino" value="@{wCadInquilino.inquilino.idinquilino}"  readonly="true"  width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Nome do Inquilino" />
+		<label style="color:red" value="*" />
+		</hbox>
+	<textbox id="nomeinquilino" value="@{wCadInquilino.inquilino.nomeinquilino}" maxlength="200"  constraint="no empty:Entre com a Nome do Inquilino" width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="RG" />
+		<label style="color:red" value="*" />
+		</hbox>
+	<textbox id="rg" value="@{wCadInquilino.inquilino.rg}" maxlength="15"  constraint="no empty:Entre com a RG" width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="CPF" />
+		<label style="color:red" value="*" />
+		</hbox>
+	<textbox id="cpf" value="@{wCadInquilino.inquilino.cpf}" maxlength="14"  constraint="no empty:Entre com a CPF" width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Telefone" />
+		</hbox>
+	<textbox id="telefone" value="@{wCadInquilino.inquilino.telefone}" maxlength="13"  width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Celular" />
+		</hbox>
+	<textbox id="celular" value="@{wCadInquilino.inquilino.celular}" maxlength="13"  width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="E-mail" />
+		</hbox>
+	<textbox id="email" value="@{wCadInquilino.inquilino.email}" maxlength="120"  width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Data do Nascimento" />
+		<label style="color:red" value="*" />
+		</hbox>
+	 <datebox id="datanascimento" value="@{wCadInquilino.inquilino.datanascimento}"  constraint="no empty:Entre com a Data do Nascimento" format="dd/MM/yyyy"  width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Nome do Pai" />
+		<label style="color:red" value="*" />
+		</hbox>
+	<textbox id="nomepai" value="@{wCadInquilino.inquilino.nomepai}" maxlength="200"  constraint="no empty:Entre com a Nome do Pai" width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Nome da Mae" />
+		<label style="color:red" value="*" />
+		</hbox>
+	<textbox id="nomemae" value="@{wCadInquilino.inquilino.nomemae}" maxlength="200"  constraint="no empty:Entre com a Nome da Mae" width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Cidade" />
+		<label style="color:red" value="*" />
+		</hbox>
+	
+<hbox>
+		
+ 	 
+<intbox id="idcidade"  value="@{wCadInquilino.cidade.idcidade}"  width="60px"   onOK="wCadInquilino.buscaPorCodCidade()"  />
+		
+ <textbox value="@{wCadInquilino.cidade.nomecidade}"  readonly="true" width="250px" />
+		
+<image src="/images/imgBuscar.png" tooltiptext="Pesquisar Cidade" 	   onClick="wCadInquilino.pesquisarCidade()"/>
+		<image src="/images/btnIncluir.png" onClick="wCadInquilino.addCidade()"/>
+		
+</hbox>
+	 </row>
+ 
+ 				 
+ 				<row spans="2" style="text-align:left"> 
+ 				<label style="color:red" value="*Campos Obrigatórios" /> 
+ 				</row> 
+ 			</rows> 
+ 		</grid> 
+ 		<separator height="10px" /> 
+ 	</window> 
+ </zk> 
+ 

@@ -1,0 +1,27 @@
+<?page id="{idtela}Zul" title="Cadastro de {nometela}" cacheable="false" language="xul/html" zscriptLanguage="Java" contentType="text/html;charset=UTF-8"?>
+<zk xmlns="http://www.zkoss.org/2005/zul"
+	xmlns:h="http://www.w3.org/1999/xhtml"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-infabnce"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+	<window use="model.view.{obj.nome}cad" id="{idtela}"
+		title="Cadastro de {nometela}" border="normal" shadow="false"
+		width="550px" position="center" mode="overlapped" sizable="false"
+		closable="false" onCreate="{idtela}.initComponentes()">
+		<separator height="10px" />
+		
+		<grid width="90%" align="center">
+			<columns>
+				<column label="" align="right" />
+				<column label="" align="left" />				
+			</columns>
+			<rows>			
+				{campotela}
+				
+				<row spans="2" style="text-align:left">
+				<label style="color:red" value="*Campos Obrigatórios" />
+				</row>
+			</rows>
+		</grid>
+		<separator height="10px" />
+	</window>
+</zk>

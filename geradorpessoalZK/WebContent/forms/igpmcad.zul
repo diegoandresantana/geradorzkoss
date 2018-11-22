@@ -1,0 +1,119 @@
+<?page id="wCadIgpmZul" title="Cadastro de IGP-M" cacheable="false" language="xul/html" zscriptLanguage="Java" contentType="text/html;charset=UTF-8"?> 
+ <zk xmlns="http://www.zkoss.org/2005/zul" 
+ 	xmlns:h="http://www.w3.org/1999/xhtml" 
+ 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-infabnce" 
+ 	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd"> 
+ 	<window use="model.view.Igpmcad" id="wCadIgpm" 
+ 		title="Cadastro de IGP-M" border="normal" shadow="false" 
+ 		width="550px" position="center" mode="overlapped" sizable="false" 
+ 		closable="false" onCreate="wCadIgpm.initComponentes()"> 
+ 		<separator height="10px" /> 
+ 		 
+ 		<grid width="90%" align="center"> 
+ 			<columns> 
+ 				<column label="" align="right" /> 
+ 				<column label="" align="left" />				 
+ 			</columns> 
+ 			<rows>			 
+ 				<row>
+	<hbox>
+		<label value="Codigo" />
+		</hbox>
+	 <intbox id="idigmp" value="@{wCadIgpm.igpm.idigmp}"  readonly="true"  width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Indice" />
+		<label style="color:red" value="*" />
+		</hbox>
+	<doublebox id="indice" value="@{wCadIgpm.igpm.indice}"  constraint="no empty:Entre com a Indice" width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Mês" />
+		<label style="color:red" value="*" />
+		</hbox>
+	
+ <combobox id="mes"  name="mes" selectedItem="@{wCadIgpm.igpm.mes}" width="150px" >
+		
+	<comboitem  value="1" label="Janeiro"/>
+		
+	<comboitem  value="2" label="Fevereiro"/>
+		
+	<comboitem  value="3" label="Março"/>
+		
+	<comboitem  value="4" label="Abril"/>
+		
+	<comboitem  value="5" label="Maio"/>
+		
+	<comboitem  value="6" label="Junho"/>
+		
+	<comboitem  value="7" label="Junho"/>
+		
+	<comboitem  value="8" label="Agosto"/>
+		
+	<comboitem  value="9" label="Setembro"/>
+		
+	<comboitem  value="10" label="Outubro"/>
+		
+	<comboitem  value="11" label="Novembro"/>
+		
+	<comboitem  value="12" label="Dezembro"/>
+		
+</combobox>
+	</row>
+<row>
+	<hbox>
+		<label value="Ano" />
+		<label style="color:red" value="*" />
+		</hbox>
+	
+ <combobox id="ano"  name="ano" selectedItem="@{wCadIgpm.igpm.ano}" width="150px" >
+		
+	<comboitem  value="2009" label="2009"/>
+		
+	<comboitem  value="2010" label="2010"/>
+		
+	<comboitem  value="2011" label="2011"/>
+		
+	<comboitem  value="2012" label="2012"/>
+		
+	<comboitem  value="2013" label="2013"/>
+		
+	<comboitem  value="2014" label="2014"/>
+		
+	<comboitem  value="2015" label="2015"/>
+		
+	<comboitem  value="2016" label="2016"/>
+		
+	<comboitem  value="2017" label="2017"/>
+		
+	<comboitem  value="2018" label="2018"/>
+		
+	<comboitem  value="2019" label="2019"/>
+		
+	<comboitem  value="2020" label="2020"/>
+		
+	<comboitem  value="2021" label="2021"/>
+		
+	<comboitem  value="2022" label="2022"/>
+		
+	<comboitem  value="2023" label="2023"/>
+		
+	<comboitem  value="2024" label="2024"/>
+		
+	<comboitem  value="2025" label="2025"/>
+		
+</combobox>
+	</row>
+ 
+ 				 
+ 				<row spans="2" style="text-align:left"> 
+ 				<label style="color:red" value="*Campos Obrigatórios" /> 
+ 				</row> 
+ 			</rows> 
+ 		</grid> 
+ 		<separator height="10px" /> 
+ 	</window> 
+ </zk> 
+ 

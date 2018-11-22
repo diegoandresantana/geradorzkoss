@@ -1,0 +1,56 @@
+<?page id="wLisContaZul" title="Lista de Conta" cacheable="false" language="xul/html" zscriptLanguage="Java" contentType="text/html;charset=UTF-8"?>
+	 
+ <zk xmlns="http://www.zkoss.org/2005/zul" 
+ 	xmlns:h="http://www.w3.org/1999/xhtml" 
+ 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-infabnce" 
+ 	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+		 
+ 	<window use="model.view.Contalis" id="wLisConta" 
+ 		title="Lista de Conta" border="normal" shadow="false" width="620px" 
+ 		height="450px" position="center" mode="overlapped" sizable="false" 
+ 		closable="true" onCreate="wLisConta.initComponentes()">
+			    
+ 		<paging id="pagConta" pageSize="10"  />
+					 
+ 		<listbox id="listConta" model="@{wLisConta.listmodel}" width="600px" 
+ 			height="360px" selectedItem="@{wLisConta.item}"    
+ 			onSelect="wLisConta.selecionar()" checkmark="true">
+				 
+ 		 
+ 			 <listhead>
+					 <listheader width="160px" >
+						<vbox>
+							<label value="Codigo"/>
+							 <intbox id="idconta" value="@{wLisConta.conta.idconta}"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Nome da Conta"/>
+							<textbox id="nomeconta" value="@{wLisConta.conta.nomeconta}"  maxlength="200"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="183px" >
+						<vbox>
+							<label value="Tipo de Conta"/>
+							
+ <combobox id="tipoconta" model="@{wLisConta.lmtipoconta}" name="tipoconta" selectedItem="@{wLisConta.tipoconta}" width="150px" >
+									<comboitem self="@{each=tipoconta}" value="@{tipoconta}" label="@{tipoconta.nomeconta}"/>
+								</combobox>
+							</vbox>
+						 </listheader>
+					 </listhead>
+				  <listitem self="@{each=conta}">
+					    <listcell	  label="@{conta.idconta}" />
+					    <listcell	  label="@{conta.nomeconta}" />
+					    <listcell	  label="@{conta.tipoconta.nomeconta}" />
+					    </listitem>
+				 
+ 			 
+ 		</listbox>
+			 
+ 	</window>
+		 
+ </zk>
+	 
+ 

@@ -1,0 +1,46 @@
+<?page id="wLisBancoZul" title="Lista de Banco" cacheable="false" language="xul/html" zscriptLanguage="Java" contentType="text/html;charset=UTF-8"?>
+	 
+ <zk xmlns="http://www.zkoss.org/2005/zul" 
+ 	xmlns:h="http://www.w3.org/1999/xhtml" 
+ 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-infabnce" 
+ 	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+		 
+ 	<window use="model.view.Bancolis" id="wLisBanco" 
+ 		title="Lista de Banco" border="normal" shadow="false" width="620px" 
+ 		height="450px" position="center" mode="overlapped" sizable="false" 
+ 		closable="true" onCreate="wLisBanco.initComponentes()">
+			    
+ 		<paging id="pagBanco" pageSize="10"  />
+					 
+ 		<listbox id="listBanco" model="@{wLisBanco.listmodel}" width="600px" 
+ 			height="360px" selectedItem="@{wLisBanco.item}"    
+ 			onSelect="wLisBanco.selecionar()" checkmark="true">
+				 
+ 		 
+ 			 <listhead>
+					 <listheader width="160px" >
+						<vbox>
+							<label value="Codigo"/>
+							 <intbox id="idbanco" value="@{wLisBanco.banco.idbanco}"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Nome do Banco"/>
+							<textbox id="nomebanco" value="@{wLisBanco.banco.nomebanco}"  maxlength="150"  width="150px"  />
+							</vbox>
+						 </listheader>
+					 </listhead>
+				  <listitem self="@{each=banco}">
+					    <listcell	  label="@{banco.idbanco}" />
+					    <listcell	  label="@{banco.nomebanco}" />
+					    </listitem>
+				 
+ 			 
+ 		</listbox>
+			 
+ 	</window>
+		 
+ </zk>
+	 
+ 

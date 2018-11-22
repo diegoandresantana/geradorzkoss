@@ -1,0 +1,124 @@
+<?page id="wLisIgpmZul" title="Lista de IGP-M" cacheable="false" language="xul/html" zscriptLanguage="Java" contentType="text/html;charset=UTF-8"?>
+	 
+ <zk xmlns="http://www.zkoss.org/2005/zul" 
+ 	xmlns:h="http://www.w3.org/1999/xhtml" 
+ 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-infabnce" 
+ 	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+		 
+ 	<window use="model.view.Igpmlis" id="wLisIgpm" 
+ 		title="Lista de IGP-M" border="normal" shadow="false" width="620px" 
+ 		height="450px" position="center" mode="overlapped" sizable="false" 
+ 		closable="true" onCreate="wLisIgpm.initComponentes()">
+			    
+ 		<paging id="pagIgpm" pageSize="10"  />
+					 
+ 		<listbox id="listIgpm" model="@{wLisIgpm.listmodel}" width="600px" 
+ 			height="360px" selectedItem="@{wLisIgpm.item}"    
+ 			onSelect="wLisIgpm.selecionar()" checkmark="true">
+				 
+ 		 
+ 			 <listhead>
+					 <listheader width="160px" >
+						<vbox>
+							<label value="Codigo"/>
+							 <intbox id="idigmp" value="@{wLisIgpm.igpm.idigmp}"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Indice"/>
+							<doublebox id="indice" value="@{wLisIgpm.igpm.indice}"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="183px" >
+						<vbox>
+							<label value="Mês"/>
+							
+ <combobox id="mes"  name="mes" selectedItem="@{wLisIgpm.igpm.mes}" width="150px" >
+								
+	<comboitem  value="1" label="Janeiro"/>
+								
+	<comboitem  value="2" label="Fevereiro"/>
+								
+	<comboitem  value="3" label="Março"/>
+								
+	<comboitem  value="4" label="Abril"/>
+								
+	<comboitem  value="5" label="Maio"/>
+								
+	<comboitem  value="6" label="Junho"/>
+								
+	<comboitem  value="7" label="Junho"/>
+								
+	<comboitem  value="8" label="Agosto"/>
+								
+	<comboitem  value="9" label="Setembro"/>
+								
+	<comboitem  value="10" label="Outubro"/>
+								
+	<comboitem  value="11" label="Novembro"/>
+								
+	<comboitem  value="12" label="Dezembro"/>
+								
+</combobox>
+							</vbox>
+						 </listheader>
+					<listheader width="183px" >
+						<vbox>
+							<label value="Ano"/>
+							
+ <combobox id="ano"  name="ano" selectedItem="@{wLisIgpm.igpm.ano}" width="150px" >
+								
+	<comboitem  value="2009" label="2009"/>
+								
+	<comboitem  value="2010" label="2010"/>
+								
+	<comboitem  value="2011" label="2011"/>
+								
+	<comboitem  value="2012" label="2012"/>
+								
+	<comboitem  value="2013" label="2013"/>
+								
+	<comboitem  value="2014" label="2014"/>
+								
+	<comboitem  value="2015" label="2015"/>
+								
+	<comboitem  value="2016" label="2016"/>
+								
+	<comboitem  value="2017" label="2017"/>
+								
+	<comboitem  value="2018" label="2018"/>
+								
+	<comboitem  value="2019" label="2019"/>
+								
+	<comboitem  value="2020" label="2020"/>
+								
+	<comboitem  value="2021" label="2021"/>
+								
+	<comboitem  value="2022" label="2022"/>
+								
+	<comboitem  value="2023" label="2023"/>
+								
+	<comboitem  value="2024" label="2024"/>
+								
+	<comboitem  value="2025" label="2025"/>
+								
+</combobox>
+							</vbox>
+						 </listheader>
+					 </listhead>
+				  <listitem self="@{each=igpm}">
+					    <listcell	  label="@{igpm.idigmp}" />
+					    <listcell	  label="@{igpm.indice}" />
+					    <listcell	  label="@{igpm.mes}" />
+					    <listcell	  label="@{igpm.ano}" />
+					    </listitem>
+				 
+ 			 
+ 		</listbox>
+			 
+ 	</window>
+		 
+ </zk>
+	 
+ 

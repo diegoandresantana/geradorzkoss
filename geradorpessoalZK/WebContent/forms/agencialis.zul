@@ -1,0 +1,63 @@
+<?page id="wLisAgenciaZul" title="Lista de Agencia" cacheable="false" language="xul/html" zscriptLanguage="Java" contentType="text/html;charset=UTF-8"?>
+	 
+ <zk xmlns="http://www.zkoss.org/2005/zul" 
+ 	xmlns:h="http://www.w3.org/1999/xhtml" 
+ 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-infabnce" 
+ 	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+		 
+ 	<window use="model.view.Agencialis" id="wLisAgencia" 
+ 		title="Lista de Agencia" border="normal" shadow="false" width="620px" 
+ 		height="450px" position="center" mode="overlapped" sizable="false" 
+ 		closable="true" onCreate="wLisAgencia.initComponentes()">
+			    
+ 		<paging id="pagAgencia" pageSize="10"  />
+					 
+ 		<listbox id="listAgencia" model="@{wLisAgencia.listmodel}" width="600px" 
+ 			height="360px" selectedItem="@{wLisAgencia.item}"    
+ 			onSelect="wLisAgencia.selecionar()" checkmark="true">
+				 
+ 		 
+ 			 <listhead>
+					 <listheader width="160px" >
+						<vbox>
+							<label value="Codigo"/>
+							 <intbox id="idagencia" value="@{wLisAgencia.agencia.idagencia}"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Nome da Agencia"/>
+							<textbox id="nomeagencia" value="@{wLisAgencia.agencia.nomeagencia}"  maxlength="150"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Numero da Agencia"/>
+							<textbox id="numeroagencia" value="@{wLisAgencia.agencia.numeroagencia}"  maxlength="30"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="183px" >
+						<vbox>
+							<label value="Banco"/>
+							
+ <combobox id="banco" model="@{wLisAgencia.lmbanco}" name="banco" selectedItem="@{wLisAgencia.banco}" width="150px" >
+									<comboitem self="@{each=banco}" value="@{banco}" label="@{banco.nomebanco}"/>
+								</combobox>
+							</vbox>
+						 </listheader>
+					 </listhead>
+				  <listitem self="@{each=agencia}">
+					    <listcell	  label="@{agencia.idagencia}" />
+					    <listcell	  label="@{agencia.nomeagencia}" />
+					    <listcell	  label="@{agencia.numeroagencia}" />
+					    <listcell	  label="@{agencia.banco.nomebanco}" />
+					    </listitem>
+				 
+ 			 
+ 		</listbox>
+			 
+ 	</window>
+		 
+ </zk>
+	 
+ 

@@ -1,0 +1,117 @@
+<?page id="wLisInquilinoZul" title="Lista de Inquilino" cacheable="false" language="xul/html" zscriptLanguage="Java" contentType="text/html;charset=UTF-8"?>
+	 
+ <zk xmlns="http://www.zkoss.org/2005/zul" 
+ 	xmlns:h="http://www.w3.org/1999/xhtml" 
+ 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-infabnce" 
+ 	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+		 
+ 	<window use="model.view.Inquilinolis" id="wLisInquilino" 
+ 		title="Lista de Inquilino" border="normal" shadow="false" width="620px" 
+ 		height="450px" position="center" mode="overlapped" sizable="false" 
+ 		closable="true" onCreate="wLisInquilino.initComponentes()">
+			    
+ 		<paging id="pagInquilino" pageSize="10"  />
+					 
+ 		<listbox id="listInquilino" model="@{wLisInquilino.listmodel}" width="600px" 
+ 			height="360px" selectedItem="@{wLisInquilino.item}"    
+ 			onSelect="wLisInquilino.selecionar()" checkmark="true">
+				 
+ 		 
+ 			 <listhead>
+					 <listheader width="160px" >
+						<vbox>
+							<label value="Codigo"/>
+							 <intbox id="idinquilino" value="@{wLisInquilino.inquilino.idinquilino}"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Nome do Inquilino"/>
+							<textbox id="nomeinquilino" value="@{wLisInquilino.inquilino.nomeinquilino}"  maxlength="200"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="RG"/>
+							<textbox id="rg" value="@{wLisInquilino.inquilino.rg}"  maxlength="15"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="CPF"/>
+							<textbox id="cpf" value="@{wLisInquilino.inquilino.cpf}"  maxlength="14"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Telefone"/>
+							<textbox id="telefone" value="@{wLisInquilino.inquilino.telefone}"  maxlength="13"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Celular"/>
+							<textbox id="celular" value="@{wLisInquilino.inquilino.celular}"  maxlength="13"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="E-mail"/>
+							<textbox id="email" value="@{wLisInquilino.inquilino.email}"  maxlength="120"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Data do Nascimento"/>
+							  <datebox id="datanascimento" value="@{wLisInquilino.inquilino.datanascimento}"  format="dd/MM/yyyy"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Nome do Pai"/>
+							<textbox id="nomepai" value="@{wLisInquilino.inquilino.nomepai}"  maxlength="200"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="160px" >
+						<vbox>
+							<label value="Nome da Mae"/>
+							<textbox id="nomemae" value="@{wLisInquilino.inquilino.nomemae}"  maxlength="200"  width="150px"  />
+							</vbox>
+						 </listheader>
+					<listheader width="200px" >
+						<vbox>
+							<label value="Cidade"/>
+							
+<hbox>
+								
+ 	
+ <textbox id="nomecidade" value="@{wLisInquilino.cidade.nomecidade}" readonly="true" width="150px" />
+								
+<image src="/images/imgBuscar.png" tooltiptext="Pesquisar Cidade" 	   onClick="wLisInquilino.pesquisarCidade()"/>
+								
+</hbox>
+							 </vbox>
+						 </listheader>
+					 </listhead>
+				  <listitem self="@{each=inquilino}">
+					    <listcell	  label="@{inquilino.idinquilino}" />
+					    <listcell	  label="@{inquilino.nomeinquilino}" />
+					    <listcell	  label="@{inquilino.rg}" />
+					    <listcell	  label="@{inquilino.cpf}" />
+					    <listcell	  label="@{inquilino.telefone}" />
+					    <listcell	  label="@{inquilino.celular}" />
+					    <listcell	  label="@{inquilino.email}" />
+					    <listcell	  label="@{inquilino.datanascimento}" />
+					    <listcell	  label="@{inquilino.nomepai}" />
+					    <listcell	  label="@{inquilino.nomemae}" />
+					    <listcell	  label="@{inquilino.cidade.nomecidade}" />
+					    </listitem>
+				 
+ 			 
+ 		</listbox>
+			 
+ 	</window>
+		 
+ </zk>
+	 
+ 

@@ -1,0 +1,57 @@
+<?page id="wCadContaZul" title="Cadastro de Conta" cacheable="false" language="xul/html" zscriptLanguage="Java" contentType="text/html;charset=UTF-8"?> 
+ <zk xmlns="http://www.zkoss.org/2005/zul" 
+ 	xmlns:h="http://www.w3.org/1999/xhtml" 
+ 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-infabnce" 
+ 	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd"> 
+ 	<window use="model.view.Contacad" id="wCadConta" 
+ 		title="Cadastro de Conta" border="normal" shadow="false" 
+ 		width="550px" position="center" mode="overlapped" sizable="false" 
+ 		closable="false" onCreate="wCadConta.initComponentes()"> 
+ 		<separator height="10px" /> 
+ 		 
+ 		<grid width="90%" align="center"> 
+ 			<columns> 
+ 				<column label="" align="right" /> 
+ 				<column label="" align="left" />				 
+ 			</columns> 
+ 			<rows>			 
+ 				<row>
+	<hbox>
+		<label value="Codigo" />
+		</hbox>
+	 <intbox id="idconta" value="@{wCadConta.conta.idconta}"  readonly="true"  width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Nome da Conta" />
+		<label style="color:red" value="*" />
+		</hbox>
+	<textbox id="nomeconta" value="@{wCadConta.conta.nomeconta}" maxlength="200"  constraint="no empty:Entre com a Nome da Conta" width="150px"  />
+	</row>
+<row>
+	<hbox>
+		<label value="Tipo de Conta" />
+		<label style="color:red" value="*" />
+		</hbox>
+	
+<hbox>
+		
+ 	
+ <combobox id="tipoconta" model="@{wCadConta.lmtipoconta}" name="tipoconta" selectedItem="@{wCadConta.tipoconta}" width="150px" >
+				<comboitem self="@{each=tipoconta}" value="@{tipoconta}" label="@{tipoconta.nomeconta}"/>
+			</combobox>
+		<image src="/images/btnIncluir.png" onClick="wCadConta.addTipoConta()"/>
+		
+</hbox>
+	 </row>
+ 
+ 				 
+ 				<row spans="2" style="text-align:left"> 
+ 				<label style="color:red" value="*Campos Obrigatórios" /> 
+ 				</row> 
+ 			</rows> 
+ 		</grid> 
+ 		<separator height="10px" /> 
+ 	</window> 
+ </zk> 
+ 
