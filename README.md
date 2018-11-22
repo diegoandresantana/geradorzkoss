@@ -1,10 +1,11 @@
 # __Initial project about generator of code
 
 
-__Autor__: Diego André Sant'Ana (diego.santana@ifms.edu.br)  
+__Autor__: Diego AndrÃ© Sant'Ana (diego.santana@ifms.edu.br)  
 
 __Version__: 1.0.0  
 
+__Date__: 2013
 
 
 Initial project for generate code for framework Zkoss and Hibernate
@@ -32,7 +33,7 @@ Entitys Annotation content information about window
 
 geradorpessoalZK/   
         
-+-- pyConvolution2d.py(Program)  
++-- src/  
         
 +-- .gitignore (git ignore)  
         
